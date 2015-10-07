@@ -6,17 +6,23 @@ This repo contains the experiment code in paper
 The paper presents a new zero-shot learning method, which achieves the state-of-the-art results in ImageNet fall2011.
 
 ## Instructions
-In order to reproduce the experiments, first you need to download the following files from http://image-net.org/
+1. Download the following files from http://image-net.org/
 - ILSVRC2012_img_train.tar (138G)
 - ILSVRC2012_img_val.tar (6.3G)
 - fall11_whole.tar (1.2T)
 
-Second, you need to prepare the images intro HDF5 files, using 
+2. prepare the images intro HDF5 files, use
 - uncompress.sh
 - correct_format.sh
 - image2hdf5.sh
 
-Third, to compute the CNN outputs of GoogLeNet of the images, using
+3. compute the CNN outputs of GoogLeNet of the images, use
 - caffe_outputs.py
 
+4. compute PCA and ICA on the CNN outputs, use
+- cov.py
+- whitening.py
+- ica.py
+
+5.
 
