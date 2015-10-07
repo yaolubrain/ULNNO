@@ -5,8 +5,8 @@ This repo contains the experiment code in paper
 
 The paper presents a new zero-shot learning method, which achieves the state-of-the-art results in ImageNet fall2011.
 
+## Instructions
 In order to reproduce the experiments, first you need to download the following files from http://image-net.org/
-
 - ILSVRC2012_img_train.tar (138G)
 - ILSVRC2012_img_val.tar (6.3G)
 - fall11_whole.tar (1.2T)
