@@ -9,9 +9,9 @@ MB_SIZE = 128
 DIM = 999
 CLASS_NUM = 1000
 
-output= h5py.File('/ldata/Datasets/Imagenet/ILSVRC2012_img_train/imagenet_1k_outputs_googlenet.h5', 'r')
-mean = h5py.File('output_mean_no_softmax_norm_googlenet.h5','r')['mean'][:]
-cov = h5py.File('output_cov_no_softmax_norm_googlenet.h5','r')['cov'][:]
+output= h5py.File('imagenet_1k_outputs_googlenet.h5', 'r')
+mean = h5py.File('mean.h5','r')['mean'][:]
+cov = h5py.File('cov.h5','r')['cov'][:]
 
 D, E = la.eig(cov)
 idx = D.argsort()[::-1]
@@ -22,7 +22,7 @@ for i in xrange(len(d)):
 D = np.diag(d)
 E = E[:,idx]
 U = np.dot(D, E.T)
-feat_file = h5py.File('whitening_nl_googlenet_'+str(DIM)+'.h5', 'w')
+feat_file = h5py.File('whitening.h5', 'w')
 feat_file.create_dataset('feature', (IM_NUM, DIM))
 feat_file.create_dataset('U', data=U[:DIM,:])
 feat_file.close()
@@ -45,5 +45,5 @@ while index < IM_NUM:
     X = X - mean
 
     feat = np.dot(X, U[:DIM,:].T)
-    feat_file = h5py.File('whitening_nl_googlenet_'+str(DIM)+'.h5', 'r+')['feature']
+    feat_file = h5py.File('whitening.h5', 'r+')['feature']
     feat_file[index-chunk_size:index,:] = feat 
