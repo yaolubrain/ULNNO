@@ -16,13 +16,21 @@ The paper presents a new zero-shot learning method, which achieves the state-of-
 - correct_format.sh
 - image2hdf5.sh
 
-3. compute the CNN outputs of GoogLeNet of the images, use
+### compute the CNN outputs of GoogLeNet of the images, use
 - caffe_outputs.py
 
-4. compute PCA and ICA on the CNN outputs, use
+### compute PCA and ICA on the CNN outputs, use
 - cov.py
 - whitening.py
 - ica.py
 
-5.
+### compute the MDS features of WordNet graph, use
+- similarity_mat.py
+- mds_distance_mat.m
+
+## run zero-shot learning experiments, use
+- make_zero_shot_mat.m
+- zero_shot_random.py
+- zero_shot_pca.py
+- zero_shot_ica.py
 
