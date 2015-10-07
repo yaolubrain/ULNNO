@@ -13,24 +13,24 @@ The CNN model is GoogeLeNet with [Caffe] (http://caffe.berkeleyvision.org/) impl
 - ILSVRC2012_img_val.tar (6.3G)
 - fall11_whole.tar (1.2T)
 
-### prepare the images intro HDF5 files, use
+### prepare the images intro HDF5 files with
 - uncompress.sh
 - correct_format.sh
 - image2hdf5.sh
 
-### compute the CNN outputs of GoogLeNet of the images, use
+### compute the CNN outputs of GoogLeNet of the images with
 - caffe_outputs.py
 
-### compute PCA and ICA on the CNN outputs, use
+### compute PCA and ICA on the CNN outputs with
 - cov.py
 - whitening.py
 - ica.py
 
-### compute the MDS features of WordNet graph, use
+### compute the MDS features of WordNet graph with
 - similarity_mat.py
 - mds_distance_mat.m
 
-### run zero-shot learning experiments, use
+### run zero-shot learning experiments with
 - imagenet_1k_21k_idx.py
 - imagenet_zero_shot_unseen_wnids.py 
 - make_zero_shot_mat.m
