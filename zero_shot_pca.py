@@ -6,9 +6,9 @@ import time
 import glob
 from scipy.spatial.distance import cdist
 
-DIM = 100
+DIM = 500
 
-with h5py.File('/home/fs/ylu/Code/cnn_stats/zero_shot_mat_pca_'+str(DIM)+'.h5', 'r') as f:
+with h5py.File('zero_shot_mat_pca.h5', 'r') as f:
     sm_mean = f['sm_mean'][:]
     g_mean = f['g_mean'][:]
     W1 = f['W1'][:]
@@ -18,19 +18,19 @@ with h5py.File('/home/fs/ylu/Code/cnn_stats/zero_shot_mat_pca_'+str(DIM)+'.h5', 
 
 print g_mean.shape, P1.shape, PW3.shape, PW23.shape
 
-wnid_list_unseen = open('/home/fs/ylu/Code/cnn_stats/imagenet_zero_shot_unseen_wnids.txt', 'r').read().splitlines()
-wnid_list_all = open('/home/fs/ylu/Code/cnn_stats/imagenet.synset.obtain_synset_list', 'r').read().splitlines()
+wnid_list_unseen = open('imagenet_zero_shot_unseen_wnids.txt', 'r').read().splitlines()
+wnid_list_mixed = open('imagenet.synset.obtain_synset_list', 'r').read().splitlines()
 wnid2idx_unseen = {}
-wnid2idx_all = {}
+wnid2idx_mixed = {}
 for i in xrange(len(wnid_list_unseen)):
     wnid2idx_unseen[wnid_list_unseen[i]] = i
-for i in xrange(len(wnid_list_all)):
-    wnid2idx_all[wnid_list_all[i]] = i
+for i in xrange(len(wnid_list_mixed)):
+    wnid2idx_mixed[wnid_list_mixed[i]] = i
 
 correct_total_unseen = 0
-correct_total_all = 0
+correct_total_mixed = 0
 im_num_total_unseen = 0
-im_num_total_all = 0
+im_num_total_mixed = 0
 for f in glob.glob("*.h5"):
     output_file = h5py.File(f, 'r')
     output = output_file['prob'][:]
@@ -61,7 +61,7 @@ for f in glob.glob("*.h5"):
         correct_2 = np.sum(pred_2 == class_idx)
         correct_1 = np.sum(pred_1 == class_idx)
 
-        pred_file = open('pred_unseen_pca_'+str(DIM)+'.txt', 'a')
+        pred_file = open('pred_unseen_pca.txt', 'a')
         pred_file.write("%s %d %d %d %d %d %d\n" % (wnid, im_num, correct_1, correct_2, correct_5, correct_10, correct_20))
         pred_file.close()
 
@@ -73,7 +73,7 @@ for f in glob.glob("*.h5"):
 
 
     # all
-    class_idx = wnid2idx_all[wnid]
+    class_idx = wnid2idx_mixed[wnid]
     D = cdist(P1g, PW23, 'cosine')
     pred_20 = np.argsort(D, axis=1)[:,:20]
     pred_10 = pred_20[:,:10]
@@ -87,12 +87,12 @@ for f in glob.glob("*.h5"):
     correct_1 = np.sum(pred_1 == class_idx)
 
 
-    pred_file = open('pred_all_pca_'+str(DIM)+'.txt', 'a')
+    pred_file = open('pred_mixed_pca.txt', 'a')
     pred_file.write("%s %d %d %d %d %d %d\n" % (wnid, im_num, correct_1, correct_2, correct_5, correct_10, correct_20))
     pred_file.close()
 
-    correct_total_all += correct_20
-    im_num_total_all += im_num
+    correct_total_mixed += correct_20
+    im_num_total_mixed += im_num
 
     print correct_20, im_num,      
 
@@ -101,8 +101,8 @@ for f in glob.glob("*.h5"):
     else:
         print 0.0,
 
-    if im_num_total_all != 0:
-        print correct_total_all / im_num_total_all
+    if im_num_total_mixed != 0:
+        print correct_total_mixed / im_num_total_mixed
 
     
 
