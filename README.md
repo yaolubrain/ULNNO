@@ -28,9 +28,11 @@ The paper presents a new zero-shot learning method, which achieves the state-of-
 - similarity_mat.py
 - mds_distance_mat.m
 
-## run zero-shot learning experiments, use
+### run zero-shot learning experiments, use
 - make_zero_shot_mat.m
 - zero_shot_random.py
 - zero_shot_pca.py
 - zero_shot_ica.py
 
+## Questions
+If you have any question regarding the code and the experiments, please contact me (yaolubrain@gmail.com). I would like to hear from you!
