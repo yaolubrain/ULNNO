@@ -13,7 +13,7 @@ The CNN model is GoogeLeNet with [Caffe] (http://caffe.berkeleyvision.org/) impl
 - ILSVRC2012_img_val.tar (6.3G)
 - fall11_whole.tar (1.2T)
 
-### prepare the images intro HDF5 files with
+### prepare the images into HDF5 format with
 - uncompress.sh
 - correct_format.sh
 - image2hdf5.sh
