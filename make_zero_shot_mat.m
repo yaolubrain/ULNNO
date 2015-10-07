@@ -4,7 +4,7 @@ setenv('LC_ALL','C')
 n = 1000;
 
 wnid2idx = containers.Map;
-wnids_file = fopen('distance_mat_wordnet_nodes_1K_googlenet.txt','r');
+wnids_file = fopen('distance_mat_wordnet_nodes_1K.txt','r');
 wnids = textscan(wnids_file,'%s\n');
 fclose(wnids_file);
 for i = 1:1000
