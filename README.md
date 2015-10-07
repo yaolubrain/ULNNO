@@ -5,7 +5,7 @@ This repo contains the experiment code in paper
 
 The paper presents a new zero-shot learning method, which achieves the state-of-the-art results in ImageNet fall2011.
 
-The CNN model is GoogeLeNet with Caffe implementation. The image2hdf5 is from [Toronto Deep Learning](https://github.com/TorontoDeepLearning/convnet).
+The CNN model is GoogeLeNet with [Caffe] (http://caffe.berkeleyvision.org/) implementation. The image format convertor (image2hdf5) is from [Toronto Deep Learning](https://github.com/TorontoDeepLearning/convnet).
 
 ## Instructions
 ### download the following files from http://image-net.org/
