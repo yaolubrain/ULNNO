@@ -29,6 +29,8 @@ The paper presents a new zero-shot learning method, which achieves the state-of-
 - mds_distance_mat.m
 
 ### run zero-shot learning experiments, use
+- imagenet_1k_21k_idx.py
+- imagenet_zero_shot_unseen_wnids.py 
 - make_zero_shot_mat.m
 - zero_shot_random.py
 - zero_shot_pca.py
