@@ -71,7 +71,7 @@ for f in glob.glob("*.h5"):
         print 0, 0,
 
 
-    #mixed
+    # mixed
     class_idx = wnid2idx_mixed[wnid]
     D = cdist(P1g, PW23, 'cosine')
     pred_20 = np.argsort(D, axis=1)[:,:20]

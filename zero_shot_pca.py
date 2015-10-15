@@ -45,7 +45,7 @@ for f in glob.glob("*.h5"):
     im_num = output.shape[0]
     wnid = f[0:9]
 
-    # unseen 
+    # unseen
     if wnid2idx_unseen.has_key(wnid):
         class_idx = wnid2idx_unseen[wnid]
         D = cdist(P1g, PW3, 'cosine')
@@ -72,7 +72,7 @@ for f in glob.glob("*.h5"):
         print 0, 0,
 
 
-    # all
+    # mixed
     class_idx = wnid2idx_mixed[wnid]
     D = cdist(P1g, PW23, 'cosine')
     pred_20 = np.argsort(D, axis=1)[:,:20]
