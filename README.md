@@ -1,8 +1,8 @@
 #Unsupervised Learning on Neural Network Outputs
 This repo contains the experiment code in paper 
 
-[Unsupervised Learning on Neural Network Outputs](http://arxiv.org/abs/1506.00990) →→
-Yao Lu →→
+[Unsupervised Learning on Neural Network Outputs](http://arxiv.org/abs/1506.00990)
+Yao Lu<br>
 International Joint Conference on Artificial Intelligence (IJCAI) 2016
 
 The paper presents a new zero-shot learning method, which achieves the state-of-the-art results on ImageNet 2011fall (14.2 million images and 21841 classes).
